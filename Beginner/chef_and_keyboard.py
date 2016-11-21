@@ -1,7 +1,7 @@
 #!/usr/bin/python
+# TODO: TLE for 10^5
 
 input_count = int(input())
-
 while(input_count):
     input_data = input().strip().split()
     n = int(input_data[0])

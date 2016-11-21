@@ -1,3 +1,4 @@
+# TODO: TLE for 10^8
 from fractions import gcd
 input_count = int(input().strip().split()[0])
 
