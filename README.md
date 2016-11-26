@@ -1,4 +1,4 @@
-# Programs I Solved!!
+# Solved Programs!!
 Some solved programs from CodeChef, HackerRank, HackerEarth
 
 my profile links:
