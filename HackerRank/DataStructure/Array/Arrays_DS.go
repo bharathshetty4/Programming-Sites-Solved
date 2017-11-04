@@ -1,4 +1,4 @@
-package Array
+package main
 //code link: https://www.hackerrank.com/challenges/arrays-ds
 import (
 	"fmt"
