@@ -1,4 +1,7 @@
 package main
+
+// Simple net/http server which checks the body passed by the curl request for authentication
+
 /*
 curl request to check the code,
 
@@ -10,7 +13,7 @@ curl --request POST \
 	"password":"pass"
 }'
 
- */
+*/
 import (
 	"encoding/json"
 	"fmt"
@@ -45,7 +48,7 @@ func LoginCheck(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		w.Write([]byte("username or password is required"))
 	}
- 	if creds.Username != userName || creds.Password != passWord {
+	if creds.Username != userName || creds.Password != passWord {
 
 		w.WriteHeader(401)
 	} else {
@@ -59,7 +62,6 @@ func main() {
 	fmt.Printf("Starting the server.. localhost:8085")
 
 	mux := http.NewServeMux()
-
 	mux.HandleFunc("/login", LoginCheck)
 
 	log.Fatal(http.ListenAndServe(":8085", mux))
