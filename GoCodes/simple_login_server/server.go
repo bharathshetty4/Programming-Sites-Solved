@@ -1,5 +1,16 @@
 package main
+/*
+curl request to check the code,
 
+curl --request POST \
+  --url http://localhost:8085/login \
+  --header 'content-type: application/json' \
+  --data '{
+	"username":"admin",
+	"password":"pass"
+}'
+
+ */
 import (
 	"encoding/json"
 	"fmt"
