@@ -5,11 +5,7 @@ curl request
 
 curl --request GET \
   --url http://localhost:8085/rest/names \
-  --header 'authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=' \
-  --data '{
-	"username":"admin",
-	"password":"pass"
-}'
+  --header 'authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ='
 
 */
 import (
