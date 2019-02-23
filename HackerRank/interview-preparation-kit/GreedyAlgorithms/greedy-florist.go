@@ -1,13 +1,15 @@
 //https://www.hackerrank.com/challenges/greedy-florist/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=greedy-algorithms
-// 9/12 failed
+// all testcases passing
 package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 // Complete the getMinimumCost function below.
 func getMinimumCost(k int32, c []int32) int32 {
+	sort.Slice(c, func(i, j int) bool { return c[i] < c[j] })
 	cost := int32(0)
 	iterNum := int32(0)
 	flwLen := int32(len(c))
