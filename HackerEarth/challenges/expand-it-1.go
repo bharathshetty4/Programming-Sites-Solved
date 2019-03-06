@@ -54,7 +54,7 @@ func getChar(charCount [27]int, index []int) {
 		if !flag {
 			if idx <= 0 {
 				fmt.Println("z")
-			}else {
+			} else {
 				fmt.Println("-1")
 			}
 		}
@@ -70,6 +70,6 @@ func main() {
 	}
 
 	//fmt.Printf("a count is: %v\n", charCount)
-	indexes := []int{2,3,4,40,800,21}
+	indexes := []int{2, 3, 4, 40, 800, 21}
 	getChar(charIdx, indexes)
 }
