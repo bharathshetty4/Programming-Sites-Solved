@@ -1,7 +1,10 @@
-# Solved Programs!!
-Some solved programs from CodeChef, HackerRank, HackerEarth
+# Solved Programs
 
-my profile links:
+Some solved programs from LeetCode, CodeChef, HackerRank, HackerEarth
+
+My profile links:
+
+LeetCode : https://leetcode.com/bharathshetty4/
 
 CodeChef : https://www.codechef.com/users/bharathshetty4
 
