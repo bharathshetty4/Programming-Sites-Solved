@@ -32,9 +32,12 @@ func findAndReplacePattern(words []string, pattern string) []string {
 		}
 		sameWord := true
 		wordMap := make(map[byte][]int)
+		//get each letters count of the word
 		for i := 0; i < patternLen; i++ {
 			wordMap[word[i]] = append(wordMap[word[i]], i)
 		}
+		//for each letter and its position in the given pattern run a loop
+		//compare pattern positions against the word position, if the first position seems to be same, check all postions of that letter
 		for _, pVal := range letterPositionMap {
 			if !sameWord {
 				break
