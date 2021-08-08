@@ -10,6 +10,8 @@ import (
 	"fmt"
 )
 
+// check each characters and if a character is repeated, set the start index to 'current repeated index + 1' so that
+// a new sub-string count can be formed. Calculate longest substring count whenever you see the repeated character.
 func lengthOfLongestSubstring(s string) int {
 	if len(s) <= 1 {
 		return len(s)
@@ -19,6 +21,7 @@ func lengthOfLongestSubstring(s string) int {
 	endSubStrIndex := 0
 	charIndex := make(map[int32]int)
 	for idx, char := range s {
+		// a duplicate character found.
 		if charOldIndex, ok := charIndex[char]; ok {
 			if charOldIndex < startSubStrIndex {
 				// if the duplicate char found exist before the start index, nothing to do and continue the computation
@@ -30,6 +33,7 @@ func lengthOfLongestSubstring(s string) int {
 				startSubStrIndex = charOldIndex + 1
 			}
 		}
+		// keep incrementing the end index of th substring
 		endSubStrIndex++
 		charIndex[char] = idx
 	}
