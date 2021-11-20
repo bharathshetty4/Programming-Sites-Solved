@@ -33,7 +33,7 @@ func lengthOfLongestSubstring(s string) int {
 				startSubStrIndex = charOldIndex + 1
 			}
 		}
-		// keep incrementing the end index of th substring
+		// keep incrementing the end index of the substring
 		endSubStrIndex++
 		charIndex[char] = idx
 	}

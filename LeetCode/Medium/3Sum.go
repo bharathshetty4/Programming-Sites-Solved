@@ -23,17 +23,22 @@ func threeSum(nums []int) [][]int {
 	numMap := make(map[int]numMapStruct)
 	numLen := len(nums)
 	for index, val := range nums {
+		// create a map of each numbers given in an array. Store the index aswell and a bool to indicate
+		//that the number exist in the struct instead of checking it using checker (ok checker)
 		numMap[val] = numMapStruct{
 			exist: true,
 			index: index,
 		}
 	}
+	// loop from first digit to the last 2nd digit
 	for i := 0; i < numLen-2; i++ {
 		for j := i + 1; j < numLen-1; j++ {
+			// if the 3rd digit which is needed to form a 3 sum found to be i or j, continue with the next number
 			if numMap[(nums[i]+nums[j])*-1].index == i || numMap[(nums[i]+nums[j])*-1].index == j {
 				continue
 			}
 			if numMap[(nums[i]+nums[j])*-1].exist {
+				// got 3 sum numbers. Sort the numbers so that we dont end up having duplicate 3 sums
 				threeSums = sortThreeSums(threeSums, ((nums[i] + nums[j]) * -1), nums[i], nums[j])
 			}
 		}
