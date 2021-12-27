@@ -9,7 +9,8 @@ curl --request GET \
 import (
 	"encoding/base64"
 	"encoding/json"
-	"io/ioutil"
+	//"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 
@@ -65,7 +66,8 @@ func getNames(c *gin.Context) {
 func putNames(c *gin.Context) {
 	var name Name
 	//c.BindJSON(&name) //this can be used instead of unmarshal
-	bodyByte, err := ioutil.ReadAll(c.Request.Body)
+	//bodyByte, err := ioutil.ReadAll(c.Request.Body)
+	bodyByte, err := io.ReadAll(c.Request.Body)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, "Check the body sent")
 		return
