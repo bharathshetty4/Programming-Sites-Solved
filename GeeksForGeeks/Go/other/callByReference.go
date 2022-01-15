@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func fn(m *int) {
-	fmt.Printf("%v\n",&m)
+	fmt.Printf("%v\n",m)
 	*m = 1
 }
 
@@ -18,5 +18,5 @@ func main() {
 
 //output is:
 //0xc000006028
-//0xc00000c0c8
+//0xc000006028
 //1
