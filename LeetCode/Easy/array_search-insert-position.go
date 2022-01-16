@@ -10,6 +10,7 @@ import (
 	"fmt"
 )
 
+// Find the right position to insert an element in the sorted array
 func searchInsert(nums []int, target int) int {
 	pos := 0
 
