@@ -1,17 +1,15 @@
 
 import "fmt"
 
-type Number interface {
-	int | float64
+type allInterface interface {
+	int | float64 | string
 }
 
 func main() {
-	n := 2
-	m := 4.5
-	fmt.Println(printNum(n))
-	fmt.Println(printNum(m))
+	n, m, p := 2, 4.5, "stringToo"
+	fmt.Println(printAll(n), printAll(m), printAll(p))
 }
 
-func printNum[V Number](num V) V {
-	return num
+func printAll[V allInterface](allVar V) V {
+	return allVar
 }
