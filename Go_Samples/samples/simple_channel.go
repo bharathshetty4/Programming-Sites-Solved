@@ -7,6 +7,9 @@ import (
 	"io/ioutil"
 )
 
+// Blogs to read:
+// https://www.ardanlabs.com/blog/2018/11/goroutine-leaks-the-forgotten-sender.html
+
 type chanStruct struct {
 	intVal int
 	strVal string
