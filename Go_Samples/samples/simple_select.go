@@ -19,8 +19,9 @@ func portal2(channel2 chan string) {
 func main() {
 
 	// Creating channels
-	R1 := make(chan string)
-	R2 := make(chan string)
+	// NOTE: make it buffered channel, so that when we cant read this channel, it will not end up leaking go routine
+	R1 := make(chan string,1)
+	R2 := make(chan string,1)
 
 	// calling function 1 and
 	// function 2 in goroutine
