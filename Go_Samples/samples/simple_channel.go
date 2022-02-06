@@ -7,6 +7,9 @@ import (
 	"io/ioutil"
 )
 
+// Blogs to read:
+// https://www.ardanlabs.com/blog/2018/11/goroutine-leaks-the-forgotten-sender.html
+
 type chanStruct struct {
 	intVal int
 	strVal string
@@ -39,11 +42,11 @@ func main1() {
 	ch := make(chan string)
 	urls := []string{"https://google.com","https://quora.com"}
 	for _,url := range urls{
-		go MakeRequest(url, ch)
+	    go MakeRequest(url, ch)
 	}
-
+	// read for the same number of times, <-ch will hold the line until the data is received
 	for range urls{
-		fmt.Println(<-ch)
+	    fmt.Println(<-ch)
 	}
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
 }
