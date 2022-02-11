@@ -39,7 +39,7 @@ func one_more() {
     d := c
     d.Name = "Daniel"
     fmt.Println(c.Name) // prints: Daniel
-    // Adding an Asterix before a pointer dereferences the pointer
+    // Adding an Asterix before a pointer dereferences the pointer. This does not work for data type variable such as 'a' above
     i := *d
     i.Name = "Ines"
     fmt.Println(c.Name) // prints: Daniel
