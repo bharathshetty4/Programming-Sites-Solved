@@ -30,3 +30,19 @@ Hence these are all equivalent,
 Note:  *a is not a valid operation as a is not a pointer
 
 */
+
+// One more
+func one_more() {
+    c := new(Person) // returns pointer
+    c.Name = "Catherine"
+    fmt.Println(c.Name) // prints: Catherine
+    d := c
+    d.Name = "Daniel"
+    fmt.Println(c.Name) // prints: Daniel
+    // Adding an Asterix before a pointer dereferences the pointer
+    i := *d
+    i.Name = "Ines"
+    fmt.Println(c.Name) // prints: Daniel
+    fmt.Println(d.Name) // prints: Daniel
+    fmt.Println(i.Name) // prints: Ines
+}
