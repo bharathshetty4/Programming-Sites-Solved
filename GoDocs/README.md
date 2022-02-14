@@ -14,3 +14,4 @@
 
 
 5. Go resiliency pattern (semaphore, timeout, circuit-breaker) > [LINK](https://github.com/eapache/go-resiliency)
+   Resiliency patterns are a type of service architecture that help to prevent cascading failures and to preserve functionality in the event of service failure.
