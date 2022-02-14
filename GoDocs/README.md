@@ -11,3 +11,6 @@
 
 
 4. Gotchas in the Go Network Packages Defaults (http.Client) > [LINK](https://martin.baillie.id/wrote/gotchas-in-the-go-network-packages-defaults/)
+
+
+5. Go resiliency pattern (semaphore, timeout, circuit-breaker) > [LINK](https://github.com/eapache/go-resiliency)
