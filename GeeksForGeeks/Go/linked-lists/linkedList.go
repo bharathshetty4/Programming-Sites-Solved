@@ -78,17 +78,93 @@ func DeleteNode(head *Node, position int) *Node {
 func main() {
 	var head *Node
 	head = AddNode(head, 20)
-	PrintLinkedList(head)
-
 	head = AddNode(head, 30)
-	PrintLinkedList(head)
-
 	head = AddNode(head, 40)
+	head = AddNode(head, 50)
 	PrintLinkedList(head)
+	// RemoveDuplicates(head)
+	// head = DeleteNode(head, 1)
+	// head = DeleteNode(head, 5)
+	// PrintMiddleNode(head)
+	// head = ReverseLinkedList(head)
+	head = ReverseWithGroup(head, 2)
+	PrintLinkedList(head)
+}
 
-	head = DeleteNode(head, 1)
-	PrintLinkedList(head)
+// solutions to the g4g questions
 
-	head = DeleteNode(head, 5)
-	PrintLinkedList(head)
+// https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/
+func PrintMiddleNode(head *Node) {
+	if head == nil {
+		fmt.Println("No LL")
+		return
+	}
+	ptr := head
+	ptr2 := head
+	for {
+		if ptr2.next == nil {
+			fmt.Println("Middle Node", ptr.data)
+			break
+		}
+		if ptr2.next.next == nil {
+			fmt.Println("Middle Node", ptr.next.data)
+			break
+		}
+		ptr2 = ptr2.next.next
+		ptr = ptr.next
+	}
+}
+
+// https://www.geeksforgeeks.org/reverse-a-linked-list/
+func ReverseLinkedList(head *Node) *Node {
+	var prev, next *Node
+	currentNode := head
+	for {
+		if currentNode == nil {
+			return prev
+		}
+		next = currentNode.next
+		currentNode.next = prev
+		prev = currentNode
+		currentNode = next
+	}
+}
+
+// https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
+func RemoveDuplicates(head *Node) {
+	currentNode := head
+	for {
+		if currentNode == nil || currentNode.next == nil {
+			return
+		}
+		if currentNode.data == currentNode.next.data {
+			currentNode.next = currentNode.next.next
+			continue
+		}
+		currentNode = currentNode.next
+	}
+}
+
+// https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
+func ReverseWithGroup(head *Node, group int) *Node {
+	var prev, next *Node
+	currentNode := head
+	for {
+		// same old reversal logic with group limit
+		for i := 0; i < group; i++ {
+			if currentNode == nil {
+				break
+			}
+			next = currentNode.next
+			currentNode.next = prev
+			prev = currentNode
+			currentNode = next
+		}
+		// If the next node exist, set the head.next (first node of current recursive list) with the next reversed group
+		if next != nil {
+			head.next = ReverseWithGroup(next, group)
+		}
+		// return the last node of the group, which is the first node after the reversing the current group
+		return prev
+	}
 }
