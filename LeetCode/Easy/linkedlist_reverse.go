@@ -1,5 +1,4 @@
 package main
-
 /*
 URL: https://leetcode.com/problems/reverse-linked-list
 Runtime: 6 ms, faster than 20.48% of Go online submissions for Reverse Linked List.
