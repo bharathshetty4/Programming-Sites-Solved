@@ -78,16 +78,17 @@ func DeleteNode(head *Node, position int) *Node {
 func main() {
 	var head *Node
 	head = AddNode(head, 20)
-	head = AddNode(head, 30)
-	head = AddNode(head, 40)
-	head = AddNode(head, 50)
-	PrintLinkedList(head)
+	AddNode(head, 30)
+	AddNode(head, 40)
+	AddNode(head, 50)
+	// PrintLinkedList(head)
 	// RemoveDuplicates(head)
 	// head = DeleteNode(head, 1)
 	// head = DeleteNode(head, 5)
 	// PrintMiddleNode(head)
 	// head = ReverseLinkedList(head)
-	head = ReverseWithGroup(head, 2)
+	// head = ReverseWithGroup(head, 2)
+	/* var head1 *Node;head1 = AddNode(head1, 22);AddNode(head1, 23);AddNode(head1, 24);ListAlternate(head, head1) */
 	PrintLinkedList(head)
 }
 
@@ -166,5 +167,27 @@ func ReverseWithGroup(head *Node, group int) *Node {
 		}
 		// return the last node of the group, which is the first node after the reversing the current group
 		return prev
+	}
+}
+
+// https://www.geeksforgeeks.org/merge-a-linked-list-into-another-linked-list-at-alternate-positions/
+func ListAlternate(head, head2 *Node) {
+	cur1 := head
+	cur2 := head2
+	for {
+		if (cur1 == nil && cur2 == nil) || cur2 == nil {
+			return
+		}
+		if cur1 != nil && cur1.next == nil {
+			cur1.next = cur2
+			cur2 = cur2.next
+			cur1 = cur1.next
+		}
+		next2 := cur2.next
+		next1 := cur1.next
+		cur1.next = cur2
+		cur1.next.next = next1
+		cur2 = next2
+		cur1 = cur1.next.next
 	}
 }
