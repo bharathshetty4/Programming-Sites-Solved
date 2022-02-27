@@ -1,11 +1,29 @@
 package main
 
-import "fmt"
-
+// tree node structure
 type Node struct {
 	data       int
 	leftChild  *Node
 	rightChild *Node
+}
+
+type queue struct {
+	queue []*Node
+}
+
+// add the element to the end
+func (q *queue) enque(node *Node) {
+	q.queue = append(q.queue, node)
+}
+
+// remove the first element and return it
+func (q *queue) deque() *Node {
+	if len(q.queue) <= 0 {
+		return nil
+	}
+	node := q.queue[0]
+	q.queue = q.queue[1:]
+	return node
 }
 
 func newNode(data int) *Node {
@@ -14,58 +32,55 @@ func newNode(data int) *Node {
 	return newNode
 }
 
-func CreateTree() *Node {
-	//initialize the root
-	root := newNode(1)
+// find the parent value and create a new node. New node is placed on parent node based on the leftChild value
+// TODO: we can change the logic to insert to the next previous node too.
+/*
+ if (temp->left != NULL){
+    q.push(temp->left);
+else {
+    temp->left = CreateNode(data);
+    }}
+*/
+func addNode(root *Node, parentVal, newNodeVal int, leftChild bool) {
+	node := newNode(newNodeVal)
+	q := &queue{}
+	q.enque(root)
+	for {
+		// keep on going until the queue is empty
+		if len(q.queue) <= 0 {
+			break
+		}
+		queueNode := q.deque() // pop
+		// if the parent node is the node we are searching for,stop the op
+		if queueNode.data == parentVal {
+			if leftChild {
+				queueNode.leftChild = &Node{data: newNodeVal}
+				return
+			}
+			queueNode.rightChild = node
+			return
+		}
 
-	root.leftChild = newNode(2)
-	root.rightChild = newNode(3)
-
-	root.leftChild.leftChild = newNode(4)
-	root.leftChild.rightChild = newNode(5)
-
-	return root
-}
-
-func InOrder(node *Node) {
-	if node == nil {
-		return
+		if queueNode.leftChild != nil {
+			q.enque(queueNode.leftChild)
+		}
+		if queueNode.rightChild != nil {
+			q.enque(queueNode.rightChild)
+		}
 	}
-	InOrder(node.leftChild)
-	fmt.Printf("%d->", node.data)
-	InOrder(node.rightChild)
-}
-
-func PreOrder(node *Node) {
-	if node == nil {
-		return
-	}
-	fmt.Printf("%d->", node.data)
-	PreOrder(node.leftChild)
-	PreOrder(node.rightChild)
-}
-
-func PostOrder(node *Node) {
-	if node == nil {
-		return
-	}
-	PostOrder(node.leftChild)
-	PostOrder(node.rightChild)
-	fmt.Printf("%d->", node.data)
 }
 
 func main() {
-	root := CreateTree()
-
-	//print preorder
-	fmt.Println("\nPre Order:")
-	PreOrder(root)
-
-	//print inorder
-	fmt.Println("\n\nIn Order:")
-	InOrder(root)
-
-	//print postorder
-	fmt.Println("\n\nPost Order:")
-	PostOrder(root)
+	// node structure
+	//                         10
+	//                     20      30
+	//                   40 50    60 70
+	// root node
+	root := newNode(10)
+	addNode(root, 10, 20, true)
+	addNode(root, 10, 30, false)
+	addNode(root, 20, 40, true)
+	addNode(root, 20, 50, false)
+	addNode(root, 30, 60, true)
+	addNode(root, 30, 70, false)
 }
