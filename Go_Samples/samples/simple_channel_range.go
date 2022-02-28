@@ -28,8 +28,10 @@ func unbuffered() {
 			done <- word
 		}
 		close(done)
+		//done <- "dd" NOT VALID. after closing the channel, you cannot send anything.
 	}()
 	for word := range done {
 		fmt.Println(word)
 	}
+	fmt.Println("after close", <-done) // after closing the channel. VALID.
 }
