@@ -1,5 +1,4 @@
-# GO Docs
-
+# List of useful Docs links
 
 1. Guide to Go Profiling, Tracing and Observability > [LINK](https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md)
 
@@ -15,3 +14,5 @@
 
 5. Go resiliency pattern (semaphore, timeout, circuit-breaker) > [LINK](https://github.com/eapache/go-resiliency)
    Resiliency patterns are a type of service architecture that help to prevent cascading failures and to preserve functionality in the event of service failure.
+
+6. Array Interview Questions > [LINK](https://igotanoffer.com/blogs/tech/array-interview-questions)
