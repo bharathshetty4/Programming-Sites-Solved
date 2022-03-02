@@ -2,9 +2,10 @@ package main
 
 /*
 URL: https://leetcode.com/problems/contains-duplicate
+URL: https://leetcode.com/problems/first-unique-character-in-a-string
 Status: Success
-Runtime: 108 ms, faster than 16.49% of Go online submissions for Contains Duplicate.
-Memory Usage: 9.7 MB, less than 48.28% of Go online submissions for Contains Duplicate.
+Runtime: 10 ms, faster than 83.10% of Go online submissions for First Unique Character in a String.
+Memory Usage: 6.4 MB, less than 19.25% of Go online submissions for First Unique Character in a String.
 */
 import (
 	"fmt"
