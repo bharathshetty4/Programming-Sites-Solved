@@ -13,9 +13,10 @@
 
 
 5. Go resiliency pattern (semaphore, timeout, circuit-breaker) > [LINK](https://github.com/eapache/go-resiliency)
-   Resiliency patterns are a type of service architecture that help to prevent cascading failures and to preserve functionality in the event of service failure.
+   <br> Resiliency patterns are a type of service architecture that help to prevent cascading failures and to preserve functionality in the event of service failure.
 
 6. Array Interview Questions > [LINK](https://igotanoffer.com/blogs/tech/array-interview-questions)
 
+7. VIDEO: Introduction to System Design > [LINK](https://www.youtube.com/watch?v=MbjObHmDbZo)
 
-7. How to ace System Design Interview? > [LINK] (https://helloacm.com/facebook-onsite-interview-preparation-part-3-how-to-ace-a-design-interview/) 
+8. How to ace System Design Interview? > [LINK](https://helloacm.com/facebook-onsite-interview-preparation-part-3-how-to-ace-a-design-interview/) 
