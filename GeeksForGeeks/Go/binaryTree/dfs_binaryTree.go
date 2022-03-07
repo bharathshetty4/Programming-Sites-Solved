@@ -37,6 +37,27 @@ func InOrder(node *Node) {
 	InOrder(node.rightChild)
 }
 
+// using stack
+func preorderTraversal(root *TreeNode) []int {
+    var ans []int
+    if root == nil {
+        return ans
+    }
+    stack := []*TreeNode{root}
+    for len(stack) > 0 {
+        top := stack[len(stack)-1]
+        stack = stack[:len(stack)-1]
+        ans = append(ans, top.Val)
+        if top.Right != nil {
+            stack = append(stack, top.Right)
+        }
+        if top.Left != nil {
+            stack = append(stack, top.Left)
+        }
+    }
+    return ans
+}
+
 func PreOrder(node *Node) {
 	if node == nil {
 		return
