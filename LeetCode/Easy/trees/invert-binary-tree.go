@@ -24,9 +24,7 @@ func invert(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	r := node.Right
-	node.Right = node.Left
-	node.Left = r
+	node.Right, node.Left = node.Right, node.Left
 	invert(node.Left)
 	invert(node.Right)
 }
