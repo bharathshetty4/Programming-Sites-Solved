@@ -29,3 +29,6 @@
 
 
 10. Go code review helper > [LINK](https://github.com/golang/go/wiki/CodeReviewComments#go-code-review-comments)
+
+
+11. What's up with slice pointer by reference > [LINK] > (https://medium.com/swlh/golang-tips-why-pointers-to-slices-are-useful-and-how-ignoring-them-can-lead-to-tricky-bugs-cac90f72e77b)
