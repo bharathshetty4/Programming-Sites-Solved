@@ -47,3 +47,21 @@ func connect(root *Node) *Node {
 	}
 	return root
 }
+
+// Best Answer
+func connect(root *Node) *Node {
+    if root == nil {
+        return root
+    }
+    connectNode(root.Left, root.Right)
+    return root
+}
+func connectNode(left *Node, right *Node) {
+    if left == nil {
+        return
+    }
+    left.Next = right
+    connectNode(left.Left, left.Right)
+    connectNode(right.Left, right.Right)
+    connectNode(left.Right, right.Left)
+}
