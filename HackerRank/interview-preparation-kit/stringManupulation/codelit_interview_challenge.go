@@ -4,6 +4,13 @@ import (
 	"fmt"
 )
 
+/*
+URL:
+Status:
+Runtime: <> ms, faster than <> of Go online submissions for Add Two Numbers.
+Memory Usage: <> MB, less than <> of Go online submissions for Add Two Numbers.
+*/
+
 func Solution(S string) string {
 	// write your code in Go 1.4
 	wordMap := map[string]string{"A": "B", "C": "D"}
