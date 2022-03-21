@@ -1,11 +1,8 @@
 package main
 
-/*
-URL:
-Status:
-Runtime: <> ms, faster than <> of Go online submissions for Add Two Numbers.
-Memory Usage: <> MB, less than <> of Go online submissions for Add Two Numbers.
-*/
+// PROBLEM: For the goven matrix data, we need to check whether the assasin can reach the right corner of the matrix without being
+// seen by the guards. X is obstacle and '>' guard can see all the right side cells of the matrix and same work for other 3 types.
+
 import (
 	"fmt"
 )
@@ -14,15 +11,6 @@ func main() {
 	fmt.Println("input: <>, output:", Solution([]string{"...Xv", "AX..^", ".XX.."}))
 	fmt.Println("input: <>, output:", Solution([]string{"X.....>", "..v..X.", ".>..X..", "A......"}))
 }
-
-// package solution
-
-// you can also use imports, for example:
-// import "fmt"
-// import "os"
-
-// you can write to stdout for debugging purposes, e.g.
-// fmt.Println("this is a debug message")
 
 func Solution(B []string) bool {
 	// get the matrix from input
@@ -128,7 +116,8 @@ func findPath(matrix *[][]string, rowLen, colLen, i, j int, start bool) bool {
 		return false
 	}
 	currChar := (*matrix)[i][j]
-	if currChar == "g" || currChar == "X" || currChar == ">" || currChar == "<" || currChar == "v" || currChar == "^" || (currChar == "A" && !start) {
+	if currChar == "g" || currChar == "X" || currChar == ">" || currChar == "<" ||
+		currChar == "v" || currChar == "^" || (currChar == "A" && !start) {
 		return false
 	}
 	if (*matrix)[i][j] == "." {

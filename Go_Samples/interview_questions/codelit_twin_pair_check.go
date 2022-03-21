@@ -4,13 +4,16 @@ import (
 	"fmt"
 )
 
-/*
-URL:
-Status:
-Runtime: <> ms, faster than <> of Go online submissions for Add Two Numbers.
-Memory Usage: <> MB, less than <> of Go online submissions for Add Two Numbers.
-*/
+// PROBLEM: For the given string delete the pair of characters if found together.
+// i.e in ACDB, CD is a pair. So removing CD we will get AB. Here AB is again a pair which can be removed too, So the
+// output should print "".
 
+// input: AB output: ""
+// input: ABC output: "C"
+// input: CDD output: "D"
+// input: ABABCDB output: "B"
+
+// TODO: Use stacks insteda of string check. This solution gave timeout error.
 func Solution(S string) string {
 	// write your code in Go 1.4
 	wordMap := map[string]string{"A": "B", "C": "D"}
