@@ -85,8 +85,8 @@ func inOrder(node *Node) {
 // If one of the sum found to be not equal, return false
 // https://www.geeksforgeeks.org/check-for-children-sum-property-in-a-binary-tree/
 func checkForChildreSum(node *Node) bool {
-	if node == nil || (node.leftChild == nil && node.rightChild == nil) {
-		return true
+	if node == nil {
+		return false
 	}
 	var l, r int
 	if node.leftChild != nil {
@@ -97,37 +97,26 @@ func checkForChildreSum(node *Node) bool {
 	}
 	fmt.Printf("Node: %d, l:%d, r:%d\n", node.data, l, r)
 
-	if node.data != l+r {
-		return false
+	if node.data == l+r {
+		return true
 	}
-	if node.leftChild != nil {
-		lChildCheck := checkForChildreSum(node.leftChild)
-		if !lChildCheck {
-			return false
-		}
-	}
-	if node.rightChild != nil {
-		rChildCheck := checkForChildreSum(node.rightChild)
-		if !rChildCheck {
-			return false
-		}
-	}
-	return true
+
+	return checkForChildreSum(node.leftChild) || checkForChildreSum(node.rightChild)
 }
 
 func main() {
 	// node structure
-	//                         50
+	//                         60
 	//                     20      30
-	//                   10 10    10 20
+	//                   10 40    10 90
 	// root node
-	root := newNode(50)
-	addNode(root, 50, 20, true)
-	addNode(root, 50, 30, false)
+	root := newNode(60)
+	addNode(root, 60, 20, true)
+	addNode(root, 60, 30, false)
 	addNode(root, 20, 10, true)
-	addNode(root, 20, 10, false)
+	addNode(root, 20, 40, false)
 	addNode(root, 30, 10, true)
-	addNode(root, 30, 20, false)
+	addNode(root, 30, 90, false)
 	// inOrder(root)
-	// fmt.Println(checkForChildreSum(root))
+	fmt.Println(checkForChildreSum(root))
 }

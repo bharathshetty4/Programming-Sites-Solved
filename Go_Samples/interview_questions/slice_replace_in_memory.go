@@ -7,13 +7,15 @@ import (
 // PROBLEM: For the given slice, check if the first cahracter is 'a' and remove the string from slice if so.
 
 func main() {
-	inputSlice := []string{"abc", "bbb", "aoi", "ccc", "dce", "abb"}
+	inputSlice := []string{"abc", "bbb", "oi", "ccc", "dce", "abb"}
 	prefixChar := "a"
-	for i := len(inputSlice) - 1; i >= 0; i-- {
-		currChar := inputSlice[i]
-		if prefixChar == string(currChar[0]) {
-			inputSlice = append(inputSlice[:i], inputSlice[i+1:]...)
+	idxPtr := 0
+	for i := 0; i < len(inputSlice); i++ {
+		if prefixChar == string(inputSlice[i][0]) {
+			continue
 		}
+		inputSlice[idxPtr] = inputSlice[i]
+		idxPtr++
 	}
-	fmt.Println("input: <>, output:", inputSlice)
+	fmt.Println("input: <>, output:", inputSlice[:idxPtr])
 }

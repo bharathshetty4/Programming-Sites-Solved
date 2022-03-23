@@ -49,7 +49,7 @@ func connect(root *Node) *Node {
 }
 
 // Best Answer
-func connect(root *Node) *Node {
+func connectBest(root *Node) *Node {
     if root == nil {
         return root
     }

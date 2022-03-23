@@ -15,7 +15,7 @@ func hasCycle(head *ListNode) bool {
 	ptr1 := head
 	ptr2 := head
 	for {
-		if ptr1 == nil || ptr1.Next == nil || ptr2.Next == nil || ptr2.Next.Next == nil {
+		if ptr1 == nil || ptr2 == nil || ptr2.Next == nil {
 			return false
 		}
 		ptr1 = ptr1.Next
