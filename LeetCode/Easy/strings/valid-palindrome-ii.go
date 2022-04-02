@@ -19,14 +19,12 @@ func validPalindrome(s string) bool {
             startLen++
             endLen--
         }else{
-          // if the char's are not same, move the startLen or endLen pointer based on the next character present (i.e next char should be matched)
             if delChar{
-                fmt.Println("s[startLen]==s[endLen]",string(s[startLen]),string(s[endLen]),startLen,endLen)
                 return false
             }
             if s[startLen] == s[endLen-1] && s[startLen+1] == s[endLen]{
                 // make sure that the remaining string is palindorm, If yes, return true
-                // increase the endLen index by 1 as golang will not include the last cahar if it is not included
+                // increase the endLen index by 1 as golang will not include the last char if it is not included
                 return isPalindrome(s[startLen:endLen]) || isPalindrome(s[startLen+1:endLen+1])
             }else if s[startLen] == s[endLen-1]{
                 endLen--
