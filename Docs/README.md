@@ -34,3 +34,6 @@
 11. What's up with slice pointer by reference > [LINK](https://medium.com/swlh/golang-tips-why-pointers-to-slices-are-useful-and-how-ignoring-them-can-lead-to-tricky-bugs-cac90f72e77b)
 
 12. Understanding golang data types > [LINK](https://www.digitalocean.com/community/tutorials/understanding-data-types-in-go)
+
+
+13. How to build a production ready microservice > [LINK](https://www.oreilly.com/library/view/production-ready-microservices/9781491965962/ch01.html)
