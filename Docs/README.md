@@ -46,3 +46,5 @@
 Interview Docs:
 
 1. Interview Best Practices > [LINK](https://careers.google.com/interview-tips/?src=Online%2FSocial%2FKeyword_blog&utm_campaign=&utm_medium=Google%20Website&utm_source=Online)
+
+2. Mock Interview Videos > [LINK](https://interviewing.io/recordings/)
