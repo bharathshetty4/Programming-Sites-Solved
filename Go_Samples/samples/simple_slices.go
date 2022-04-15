@@ -21,6 +21,13 @@ import "fmt"
 
 */
 
+/*
+  The contents of a slice argument can be modified by a function, but its header cannot.
+  The length stored in the slice variable is not modified by the call to the function,
+  since the function is passed a copy of the slice header, not the original. Thus if we want
+  to write a function that modifies the header, we must return it as a result parameter, just as we have done here.
+*/
+
 func updateSlice(mySlice []string) {
 	mySlice[0] = "oneupdated"
 	mySlice = append(mySlice, "three") // append did not work
