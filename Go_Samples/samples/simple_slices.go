@@ -23,11 +23,15 @@ import "fmt"
 
 func updateSlice(mySlice []string) {
 	mySlice[0] = "oneupdated"
+	mySlice = append(mySlice, "three") // append did not work
 	// mySlice[3] = "oneupdated"  //index out of range panic
+	myLocalSlice := mySlice
+	myLocalSlice[1] = "twoupdated" // will not update the original slice, works with ptr
 }
 
 func updateSliceWithPtr(mySlice *[]string) {
 	(*mySlice)[0] = "oneptr"
+	(*mySlice) = append((*mySlice), "threePtr") // append worked
 }
 
 func main() {
@@ -36,5 +40,18 @@ func main() {
 	updateSlice(mySlice)
 	fmt.Println(mySlice) // [oneupdated two]
 	updateSliceWithPtr(&mySlice)
-	fmt.Println(mySlice) // [oneptr two]
+	fmt.Println(mySlice) // [oneptr two threePtr]
+	myMainLocalSlice := mySlice
+	myMainLocalSlice[1] = "twoupdated" // will update the original slice value too
+	fmt.Println(mySlice)               // [oneptr twoupdated threePtr]
 }
+
+/*
+op:
+
+[one two]
+[oneupdated two]
+[oneptr two threePtr]
+[oneptr twoupdated threePtr]
+
+*/
