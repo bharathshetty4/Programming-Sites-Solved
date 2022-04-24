@@ -31,8 +31,19 @@ Note:  *a is not a valid operation as a is not a pointer
 
 */
 
-// One more
-func one_more() {
+// pass the pointer and use the pointer
+func incrInt(d *int) {
+	*d++
+}
+
+func inorder(node *TreeNode, list * []int) {
+    if node == nil {
+        return
+    }
+    *list = append(*list,node.Val)
+}
+
+func more_examples() {
     c := new(Person) // returns pointer
     c.Name = "Catherine"
     fmt.Println(c.Name) // prints: Catherine
