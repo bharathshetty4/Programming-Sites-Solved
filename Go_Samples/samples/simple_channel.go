@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"time"
-	"io/ioutil"
 )
 
 // Blogs to read:
@@ -16,10 +14,13 @@ type chanStruct struct {
 }
 
 func main() {
-	ch := make(chan chanStruct)
+	ch := make(chan chanStruct, 0) // unbuffered channel
 	go updateChannel(ch)
-	recvdVal := <-ch
-	fmt.Println("Hello", recvdVal)
+	fmt.Println("Hello from channel:", <-ch) // waits until the data is written as it is unbuffered
+
+	bufferedChannelSameThread()
+	unbufferedWithDifferentThread()
+	bufferedWithDifferentThread()
 }
 
 func updateChannel(ch chan chanStruct) {
@@ -27,26 +28,78 @@ func updateChannel(ch chan chanStruct) {
 	ch <- obj
 }
 
-// another Example
-func MakeRequest(url string, ch chan<-string) {
-	start := time.Now()
-	resp, _ := http.Get(url)
+/*
+output:
+Hello from channel: {4 bks}
+*/
 
-	secs := time.Since(start).Seconds()
-	body, _ := ioutil.ReadAll(resp.Body)
-	ch <- fmt.Sprintf("%.2f elapsed with response length: %d %s", secs, len(body), url)
+func bufferedChannelSameThread() {
+	// create a buffered channel, which can write as many times as needed without worrying about the write.
+	queue := make(chan string, 2) // this has to be 2 if we are reading and writing in the same thread
+	queue <- "one"
+	queue <- "two"
+	close(queue) // make sure that you close the channel before ranging over it. Otherwise for loop will never break.
+
+	for elem := range queue {
+		fmt.Println(elem)
+	}
 }
 
-func main1() {
-	start := time.Now()
-	ch := make(chan string)
-	urls := []string{"https://google.com","https://quora.com"}
-	for _,url := range urls{
-	    go MakeRequest(url, ch)
+/*
+output:
+one
+two
+*/
+
+// range for unbuffered channel by using multiple thread
+func unbufferedWithDifferentThread() {
+	done := make(chan string) // you can make this buffered to process faster, as 'range' will wait until the data is written on the channel after a 'read'
+	go func() {
+		for _, word := range []string{"foo", "bar", "baz"} {
+			done <- word
+		}
+		close(done)
+		//done <- "dd" NOT VALID. after closing the channel, you cannot send anything.
+	}()
+	for word := range done {
+		fmt.Println(word)
 	}
-	// read for the same number of times, <-ch will hold the line until the data is received
-	for range urls{
-	    fmt.Println(<-ch)
-	}
-	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
+	fmt.Println("read after closing the channel:", <-done) // read after closing the channel. VALID.
 }
+
+/*
+output:
+foo
+bar
+baz
+read after closing the channel:
+*/
+
+func bufferedWithDifferentThread() {
+	ch := make(chan int, 1) // we can write multiple times if the channel is used in different thread even with the less size
+	for i := 0; i < 4; i++ {
+		go updateBufferedChannel(i, ch)
+	}
+
+	for i := 0; i < 2; i++ {
+		time.Sleep(time.Second)
+		recvdVal := <-ch
+		fmt.Println("Reading data", recvdVal)
+	}
+	close(ch)
+}
+
+func updateBufferedChannel(val int, ch chan int) {
+	fmt.Println("writing data", val)
+	ch <- val
+}
+
+/*
+output:
+writing data 3
+writing data 2
+writing data 1
+writing data 0
+Reading data 3
+Reading data 2
+*/
