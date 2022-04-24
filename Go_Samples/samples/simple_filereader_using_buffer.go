@@ -13,11 +13,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer func() {
-		if err = f.Close(); err != nil {
-			log.Fatal(err)
-		}
-	}()
+	defer f.Close()
 	r := bufio.NewReader(f)
 	b := make([]byte, 3)
 	for {
