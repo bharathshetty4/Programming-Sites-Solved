@@ -41,12 +41,17 @@
 
 14. How to scale from zero to millions > [LINK](https://systeminterview.com/scale-from-zero-to-millions-of-users.php)
 
-
 <br> <br>
+SRE / Application metrics
+
+1. [The Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals)
+<br> <br>
+
+
 Interview Docs:
 
-1. Interview Best Practices > [LINK](https://careers.google.com/interview-tips/?src=Online%2FSocial%2FKeyword_blog&utm_campaign=&utm_medium=Google%20Website&utm_source=Online)
+1. [Interview Best Practices](https://careers.google.com/interview-tips/?src=Online%2FSocial%2FKeyword_blog&utm_campaign=&utm_medium=Google%20Website&utm_source=Online)
 
-2. Mock Interview Videos > [LINK](https://interviewing.io/recordings/)
+2. [Mock Interview Videos](https://interviewing.io/recordings/)
 
-3. How to write a CV? > [LINK](https://somehowimanage.blog/2019/01/28/somehow-i-recruit-cv-yeah-yeah-cv/)
+3. [How to write a CV?](https://somehowimanage.blog/2019/01/28/somehow-i-recruit-cv-yeah-yeah-cv/)
