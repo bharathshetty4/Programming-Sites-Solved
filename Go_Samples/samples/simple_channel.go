@@ -103,3 +103,40 @@ writing data 0
 Reading data 3
 Reading data 2
 */
+
+
+// code for not panic'ing inside the go routine
+
+type caughtPanicError struct {
+    val   any
+    stack []byte
+}
+
+func (e *caughtPanicError) Error() string {
+    return fmt.Sprintf(
+        "panic: %q\n%s",
+        e.val,
+        string(e.stack)
+    )
+}
+
+func main() {
+    done := make(chan error)
+    go func() {
+        defer func() {
+            if v := recover(); v != nil {
+                done <- caughtPanicError{
+                    val: v,
+                    stack: debug.Stack()
+                }
+            } else {
+                done <- nil
+            }
+        }()
+        doSomethingThatMightPanic()
+    }()
+    err := <-done
+    if err != nil {
+        panic(err)
+    }
+}
