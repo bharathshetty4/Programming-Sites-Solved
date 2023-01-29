@@ -41,6 +41,8 @@
 
 14. How to scale from zero to millions > [LINK](https://systeminterview.com/scale-from-zero-to-millions-of-users.php)
 
+15. Problems with Integer. Good Read  > [LINK](https://jvns.ca/blog/2023/01/18/examples-of-problems-with-integers/)
+
 <br> <br>
 SRE / Application metrics
 
