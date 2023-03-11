@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 )
-
+// good read: https://about.sourcegraph.com/blog/building-conc-better-structured-concurrency-for-go
 func runner1(wg *sync.WaitGroup) {
 	defer wg.Done() // This decreases counter by 1
 	fmt.Print("\nI am first runner")
