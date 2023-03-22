@@ -30,3 +30,14 @@ err2: new global err
 err1: <nil>
 Hello new global err
 */
+
+// only the defer body will get run as part of defer. This doesnot work if we are passing a variable though as updating varaible updates
+// value inside defer aswell.
+func main() {
+	defer func(tt time.Time) {
+		fmt.Println("Hello defer", tt) // Hello 2023-03-22 15:22:56.278517 +0100 CET m=+0.000082018
+	}(time.Now())
+	fmt.Println("Hello", time.Now()) // Hello 2023-03-22 15:22:56.278517 +0100 CET m=+0.000082118
+	time.Sleep(1 * time.Second)
+	fmt.Println("Hello", time.Now())  // Hello 2023-03-22 15:22:57.279791 +0100 CET m=+1.001350562
+}
