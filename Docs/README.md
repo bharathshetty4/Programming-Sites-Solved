@@ -43,6 +43,8 @@
 
 15. Problems with Integer. Good Read  > [LINK](https://jvns.ca/blog/2023/01/18/examples-of-problems-with-integers/)
 
+16. Golang quirks and tricks > [LINK](https://eblog.fly.dev/quirks.html)
+
 <br> <br>
 SRE / Application metrics
 
