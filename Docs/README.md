@@ -45,12 +45,13 @@
 
 
 <br> <br>
-SRE / Application metrics
+SRE / Application metrics/ Go Trace:
 
 1. [The Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals)
+
+2. [Go tracer which supposed to be better that go-tracer](https://github.com/dominikh/gotraceui)
+
 <br> <br>
-
-
 Principles / Design patterns:
 
 1. [Adapter pattern in Go](https://bitfieldconsulting.com/golang/adapter)
