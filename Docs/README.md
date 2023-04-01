@@ -45,6 +45,8 @@
 
 16. Golang quirks and tricks > [LINK](https://eblog.fly.dev/quirks.html)
 
+17. High-performance JSON parsing in Go > [LINK](https://www.cockroachlabs.com/blog/high-performance-json-parsing/)
+
 <br> <br>
 SRE / Application metrics
 
