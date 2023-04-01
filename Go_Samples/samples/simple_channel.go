@@ -7,6 +7,7 @@ import (
 
 // Blogs to read:
 // https://www.ardanlabs.com/blog/2018/11/goroutine-leaks-the-forgotten-sender.html
+// https://www.dolthub.com/blog/2023-03-13-golang-concurrency-examples/
 
 type chanStruct struct {
 	intVal int
