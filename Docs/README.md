@@ -39,9 +39,11 @@
 
 14. [How to scale from zero to millions](https://systeminterview.com/scale-from-zero-to-millions-of-users.php)
 
-15. [Problems with Integer. Good Read](https://jvns.ca/blog/2023/01/18/examples-of-problems-with-integers/)
+15. [Scaling a go application](https://github.com/zeromicro/go-zero)
 
-16. [Golang quirks and tricks](https://eblog.fly.dev/quirks.html)
+16. [Problems with Integer. Good Read](https://jvns.ca/blog/2023/01/18/examples-of-problems-with-integers/)
+
+17. [Golang quirks and tricks](https://eblog.fly.dev/quirks.html)
 
 
 <br> <br>
@@ -68,3 +70,4 @@ Interview Docs:
 2. [Mock Interview Videos](https://interviewing.io/recordings/)
 
 3. [How to write a CV?](https://somehowimanage.blog/2019/01/28/somehow-i-recruit-cv-yeah-yeah-cv/)
+
