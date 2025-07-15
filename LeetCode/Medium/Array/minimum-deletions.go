@@ -22,7 +22,7 @@ func minDeletions(s string) int {
     delCnt :=0 
     cntMap := make(map[int]struct{})
     // for each character, if the count is already used by any other character
-    // loop until the count is unique
+    // loop until the count is unique or zero
     for i:=0;i<26;i++{
         cntVal := charCnt[i]
         for cntVal>0{
